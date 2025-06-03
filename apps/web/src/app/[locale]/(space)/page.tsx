@@ -17,29 +17,23 @@ import {
   PageHeader,
   PageTitle,
 } from "@/app/components/page-layout";
-import { getLoggedIn } from "@/next-auth";
+import { requireUser } from "@/auth/queries";
 import { Trans } from "@/components/trans";
 import { IfCloudHosted } from "@/contexts/environment";
 import { getTranslation } from "@/i18n/server";
 import { prisma } from "@rallly/database";
 import { FeedbackAlert } from "./feedback-alert";
-import { Marketing, BigTestimonial, MentionedBy } from "@/components/landing/marketing";
-import { MarketingHero } from "@/components/landing/hero";
-import { SimplifiedBonus } from "@/components/landing/bonus";
-import { requireUser } from "@/auth/queries";
 
 async function loadData() {
-  const isLoggedIn = await getLoggedIn();
-  
-  if (!isLoggedIn) {
+  const user = await requireUser();
+
+  if (!user) {
     return {
       livePollCount: 0,
       upcomingEventCount: 0,
-      isLoggedIn: false,
     };
   }
 
-  const user = await requireUser();
   const now = new Date();
   const [livePollCount, upcomingEventCount] = await Promise.all([
     prisma.poll.count({
@@ -62,34 +56,12 @@ async function loadData() {
   return {
     livePollCount,
     upcomingEventCount,
-    isLoggedIn: true,
   };
 }
 
 export default async function Page() {
-  const { livePollCount, upcomingEventCount, isLoggedIn } = await loadData();
+  const { livePollCount, upcomingEventCount } = await loadData();
 
-  // Show landing page for unauthenticated users
-  if (!isLoggedIn) {
-    return (
-      <div className="min-h-screen bg-white">
-        <div className="container mx-auto px-4 py-8">
-          <Marketing>
-            <MarketingHero
-              title="Find the best time to meet"
-              description="Coordinate group meetings without the back-and-forth emails"
-              callToAction="Create a Meeting Poll"
-            />
-            <SimplifiedBonus />
-            <BigTestimonial />
-            <MentionedBy />
-          </Marketing>
-        </div>
-      </div>
-    );
-  }
-
-  // Show dashboard for authenticated users
   return (
     <PageContainer>
       <PageHeader>
