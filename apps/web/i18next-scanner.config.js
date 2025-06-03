@@ -7,7 +7,7 @@ module.exports = {
     defaultNs: "app",
     defaultValue: "__STRING_NOT_TRANSLATED__",
     lngs: ["en"],
-    ns: ["app"],
+    ns: ["app", "home"],
     plural: false,
     removeUnusedKeys: true,
     func: {

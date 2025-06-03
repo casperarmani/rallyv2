@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { env } from "@/env";
 import { isQuickCreateEnabled } from "@/features/quick-create/constants";
 
-const publicRoutes = ["/login", "/register", "/invite/", "/poll/", "/auth"];
+const publicRoutes = ["/", "/login", "/register", "/invite/", "/poll/", "/auth"];
 
 if (isQuickCreateEnabled) {
   publicRoutes.push("/quick-create", "/new");
