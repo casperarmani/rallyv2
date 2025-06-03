@@ -10,7 +10,7 @@ export default async function RootPage() {
   
   // If user is logged in, redirect to their dashboard
   if (isLoggedIn) {
-    redirect("/polls");
+    redirect("/dashboard");
   }
 
   // Show landing page for unauthenticated users

@@ -22,7 +22,7 @@ import { Trans } from "@/components/trans";
 import { IfCloudHosted } from "@/contexts/environment";
 import { getTranslation } from "@/i18n/server";
 import { prisma } from "@rallly/database";
-import { FeedbackAlert } from "./feedback-alert";
+import { FeedbackAlert } from "../feedback-alert";
 
 async function loadData() {
   const user = await requireUser();
