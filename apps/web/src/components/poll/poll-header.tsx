@@ -18,7 +18,7 @@ export function PollHeader() {
         <div className="flex items-center gap-x-2.5">
           <Link
             className="transition-transform active:translate-y-1"
-            href="https://rallly.co"
+            href="/"
           >
             <Image
               src="/images/logo-mark.svg"

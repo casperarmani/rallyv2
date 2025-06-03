@@ -31,15 +31,6 @@ const ErrorPage: React.FunctionComponent<ComponentProps> = ({
           <Button variant="primary" asChild>
             <Link href="/">{t("errors_goToHome")}</Link>
           </Button>
-          <Button asChild>
-            <Link
-              href="https://support.rallly.co"
-              passHref={true}
-              className="btn-default"
-            >
-              {t("common_support")}
-            </Link>
-          </Button>
         </div>
       </div>
     </div>

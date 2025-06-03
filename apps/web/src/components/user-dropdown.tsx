@@ -105,43 +105,6 @@ export const UserDropdown = ({ className }: { className?: string }) => {
             </Link>
           </DropdownMenuItem>
         </IfCloudHosted>
-        <DropdownMenuItem asChild={true}>
-          <Link
-            target="_blank"
-            href="https://support.rallly.co"
-            className="flex items-center gap-x-2"
-          >
-            <LifeBuoyIcon className="text-muted-foreground size-4" />
-            <Trans i18nKey="support" defaults="Support" />
-            <Icon>
-              <ArrowUpRight />
-            </Icon>
-          </Link>
-        </DropdownMenuItem>
-        <IfSelfHosted>
-          <DropdownMenuItem asChild={true}>
-            <Link
-              target="_blank"
-              href="https://support.rallly.co/self-hosting/pricing"
-              className="flex items-center gap-x-2"
-            >
-              <GemIcon className="text-muted-foreground size-4" />
-              <Trans i18nKey="pricing" defaults="Pricing" />
-            </Link>
-          </DropdownMenuItem>
-        </IfSelfHosted>
-        {isFeedbackEnabled ? (
-          <DropdownMenuItem asChild={true}>
-            <Link
-              target="_blank"
-              href="https://feedback.rallly.co"
-              className="flex items-center gap-x-2"
-            >
-              <MegaphoneIcon className="text-muted-foreground size-4" />
-              <Trans i18nKey="feedback" defaults="Feedback" />
-            </Link>
-          </DropdownMenuItem>
-        ) : null}
         <DropdownMenuSeparator />
         <IfGuest>
           <DropdownMenuItem asChild={true}>

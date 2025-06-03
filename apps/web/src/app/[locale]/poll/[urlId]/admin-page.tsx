@@ -1,7 +1,6 @@
 "use client";
 import Discussion from "@/components/discussion";
 import { EventCard } from "@/components/event-card";
-import { PollFooter } from "@/components/poll/poll-footer";
 import { PollViewTracker } from "@/components/poll/poll-view-tracker";
 import { ResponsiveResults } from "@/components/poll/responsive-results";
 import { ScheduledEvent } from "@/components/poll/scheduled-event";
@@ -27,7 +26,6 @@ export function AdminPage() {
         <ResponsiveResults />
       </VotingForm>
       <Discussion />
-      <PollFooter />
     </div>
   );
 }
