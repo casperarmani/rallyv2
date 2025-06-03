@@ -91,11 +91,6 @@ export async function generateMetadata(props: {
 
   const author = user?.name || "Guest";
 
-  const ogImageUrl = absoluteUrl("/api/og-image-poll", {
-    title,
-    author,
-  });
-
   return {
     title,
     metadataBase: new URL(absoluteUrl()),
@@ -103,14 +98,6 @@ export async function generateMetadata(props: {
       title,
       description: `By ${author}`,
       url: `/invite/${id}`,
-      images: [
-        {
-          url: ogImageUrl,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
     },
   };
 }
